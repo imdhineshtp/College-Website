@@ -1,0 +1,112 @@
+{% extends 'home.html'%}
+{% if dept %}
+{% block title %}  {{dept.name}}{% endblock %}
+{% load static %}
+{% block content %}
+    <!-- nav bar -->
+    {% include 'Departments/deptheader.html' %}
+
+    <!-- nav bar ends -->
+<style>
+  h1.text{
+    color:#fff;
+    -webkit-text-stroke: 1px #333;
+    font-weight: 900;
+    font-style: italic;
+    /* font-family: 'Merienda', cursive; */
+    font-family: 'Merienda', cursive;
+    text-shadow: 4px 4px 1px rgb(255, 0, 170);
+
+  }
+</style>
+    <!-- dept name -->
+    <div class="container-fluid dept-name-cont d-flex justify-content-center align-items-center p-5 m-0 text-center font-weight-bolder" data-aos="flip-down" data-aos-delay="1000" >
+      <h1 class = " text "data-aos="fade-down-right" data-aos-delay="1300"> {{dept.name}} </h1>
+    </div>
+  <!-- dept name ends -->
+
+    <!-- dept carousel -->
+     <div id="gallery" class="carousel slide carousel-fade" data-ride="carousel" data-aos="fade-up" data-aos-delay="300">
+
+      <ul class="carousel-indicators" >
+        <li data-target="#gallery" data-slide-to="0" class="active"></li>
+        <li data-target="#gallery" data-slide-to="1"></li>
+        <li data-target="#gallery" data-slide-to="2"></li>
+      </ul>
+      
+      <div class="carousel-inner">
+          {% for img in carousel|slice:":3" %}  
+            {% if forloop.first %}
+            <div class="carousel-item active" data-interval="2000">
+            {% else %}  
+            <div class="carousel-item " data-interval="1000">
+            {% endif %}
+              <img src="{{img.Image.url}}" class="d-block  w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block rounded position-absolute bg-custom">
+                  <h5>{{img.Img_title}}</h5>
+                  <p>{{img.Img_desc}}</p>
+                </div>
+            </div>
+        {% endfor %}  
+      
+      </div>
+      
+      <a class="carousel-control-prev" href="#gallery" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#gallery" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    
+    <!-- dept carousel ends -->
+
+    <!-- about section -->
+<div class="container-abt mt-5 " id="about" data-aos="fade-down">
+
+  <div class="container-header p-3 ">About the Department </div>
+    <p>{{dept.About}}</p>
+  
+  
+</div>
+<br>
+
+<!-- about section ends -->
+<div class="bg2" data-aos="fade-right"></div>
+<!-- courses offered division -->
+<div class="container p-3">
+  <div class="container-header p-3 " data-aos="zoom-in-up" data-aos-delay="100"> Course Details </div>
+  <table class="table table-dark table-hover table-striped table-bordered rounded mt-4" data-aos="zoom-in" data-aos-delay="800">
+    <thead>
+      <tr>
+        <th>Course Type</th>
+        <th>Course Name</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+      <tr>
+        <td>{{course.Course_type}}</td>
+        <td>{{course.Course_name}}</td>
+        <td> {{course.Course_duration}}</td>
+      </tr>
+    {% endfor %}
+      
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+    <!-- footer  -->
+    {% include 'footer.html' %}
+    <!-- footer ends -->
+
+    {% include 'script.html' %}
+{% endblock %}
+{% endif %}

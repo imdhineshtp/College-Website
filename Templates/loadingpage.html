@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>loading page</title>
+</head>
+
+<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0;
+		background: white;
+		
+		min-height:100vh;
+
+	}
+	.screen
+	{
+		/*border: 2px solid red;*/
+		background:#000;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		width: 100%;
+		position: relative;
+		
+
+		
+	}
+	.screen .bar
+	{
+		float: left;
+		background: linear-gradient(80deg, #110e1f,white, #1b1730);
+		height: 20vh;
+		width: 15px;
+		margin:10px;
+		border-radius: 20px;
+		position: relative;
+		/*left:5%;*/
+		/*animation: animate2 1s  infinite;*/
+	}
+	/*@keyframes animate2{
+		0%{background: red;}
+		100%{background: linear-gradient(80deg, #110e1f,white, #1b1730);}
+		
+	}*/
+	.text
+	{
+		/*border: 2px solid white;*/
+		display: block;
+		position: relative;
+		float: none;
+		width: fit-content;
+		color: white;
+		font-size: 3rem;
+
+		top:37%;
+		text-align: center;
+		left: -15%;
+		
+	}
+	.screen .bar:nth-child(1){
+		animation: animate 1s infinite .1s, animate2 .5s  infinite 3s;
+		/*animation-delay: .1s;*/
+	}
+	.screen .bar:nth-child(2){
+		animation: animate 1s infinite, animate2 1s  infinite 10s;
+		animation-delay: 0.2s;
+	}
+	.screen .bar:nth-child(3){
+		animation: animate 1s infinite, animate2 1s  infinite 10s;
+		animation-delay: .3s;
+	}
+	.screen .bar:nth-child(4){
+		animation: animate 1s infinite, animate2 1s  infinite 10s;
+		animation-delay: .4s;
+	}
+	.screen .bar:nth-child(5){
+		animation: animate 1s infinite, animate2 1s  infinite 10s;
+		animation-delay: .5s;
+	}
+	
+	.screen .bar:nth-child(6){
+		animation: animate 1s infinite, animate2 1s  infinite 10s;
+		animation-delay: .6s;
+	}
+	.screen .bar:nth-child(7){
+		animation: animate 1s infinite, animate2 1s  infinite 10s;
+		animation-delay: .7s;
+	}
+	.screen .bar:nth-child(8){
+		animation: animate 1s infinite, animate2 1s  infinite 10s;
+		animation-delay: .8s;
+
+	}
+
+
+	@keyframes animate
+	{
+		0%{height:20vh;}
+		50%{height: 0;}
+		100%{height: 20vh;}
+	}
+</style>
+<body>
+	<div class="screen">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<!-- <div class="text"> Loading </div>	 -->
+	</div>
+	
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	// preloader
+	preloadertime = 5000;
+	function hidepre()
+	{
+		var preloader = $('.screen');
+		preloader.fadeOut(preloadertime);
+	}
+	hidepre();
+});
+</script>
+</html>

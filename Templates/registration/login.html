@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Student login {% endblock %}
+{% block hf %}
+
+
+    <div class="login-page">
+        <div class="form">
+          
+          
+          <form class="login-form" method="POST" action="">
+
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Register Number"/>
+            <input type="password" name = "password" placeholder="Password"/>
+            
+            <button>login</button>
+            
+          </form>
+          <p class="message">Not Yet Register!<a href="{% url 'register' %}"> Click here</a></p>
+          <p class="message"><a href="{% url 'password_reset' %}"> Forget Password?</a></p>
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

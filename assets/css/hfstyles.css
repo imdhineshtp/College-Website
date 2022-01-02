@@ -1,0 +1,380 @@
+.logo{
+	text-align: center;
+	margin:0px;
+	height:150px;
+	width:100%;
+	/* margin-left:16%; */
+	z-index:0;
+	
+}
+#navbar{
+	z-index: 99;
+	overflow:hidden;
+	background:linear-gradient(to right, rgb(250,94,4),rgb(209,110,30));
+	margin: 0 auto;
+	width:100%;
+	/* border-top:1px solid #333;
+	border-bottom:1px solid #333; */
+	text-align:center;	
+	}
+
+#navbar a{
+	float: left;
+	font-family: 'Times New Roman';
+	color:#000;
+	text-align: center;
+	padding:14px 16px;
+	text-decoration:none;
+	font-size:25px;
+	transition: background 1s;
+	
+}
+
+#navbar a:hover{
+	background-color:rgba(8, 240, 228, 0.295);
+	color:white;
+	
+
+}
+
+.head-center{
+	margin-left: 35%;
+	
+}
+
+.content{
+	padding:16ox;
+}
+
+.sticky{
+	position:fixed;
+	top:0;
+	width:100%;
+}
+
+.sticky+.content{
+	padding-top: 60px;
+}
+
+overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top:0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  
+  /* Position the content inside the overlay */
+  .overlay-content {
+    position: relative;
+    top: 10%; /* 25% from the top */
+      width: 100%; /* 100% width */
+      
+    text-align: left; /* Centered text/links */
+      margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+      display:grid;
+      grid-template-columns:50% 50%;
+      
+      grid-gap:5px;
+      padding:0 10%;
+  }
+  .overlay-header{font-size:30px; color:white; background:inherit;text-align:center; font-weight:bolder;height:20%;}
+  /* The navigation links inside the overlay */
+  .overlay-content-header{
+      font-size:30px;
+      font-weight:bolder;
+      text-align:center;
+      
+      
+  }
+  
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s linear; /* Transition effects on hover (color) */
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .overlay a:hover, .overlay a:focus {
+      color: #f1f1f1;
+      background:crimson;
+  }
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  .closebtn2:hover{
+      background: inherit;
+  }
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+
+
+
+
+
+  
+/* Footer */
+.footer{
+	background:linear-gradient(to right, rgb(250,94,4),rgb(209,110,30));
+	width:100%;
+	height:30%;	
+	text-align:center;
+	color:white;
+	
+	
+
+}
+.top-footer{
+	height:100%;
+	display:grid;
+	grid-template-columns: 70% 30%;
+	
+}
+.top-left-footer{
+	
+	height:100%;
+	text-align: center;
+	font-size:30px;
+	/* color:white; */
+	
+}
+.top-right-footer{
+	font-size:20px;
+	height:100%;
+	
+	display:grid;
+	/* color: whitesmoke; */
+	font-weight: bolder;
+	grid-template-columns: 40% 30% 30%;
+	padding:20px;
+}
+.trf1{
+	width:100%;
+	text-align: justify;
+	display:grid;
+	grid-template-columns: 10% 90%;
+	padding:20px;
+	
+}
+
+.trf2{
+	height:100%;
+	width:100%;
+	
+	padding:10px;
+}
+.trf2 a{
+	text-decoration:none;
+	color:black;
+	font-weight:bolder;
+	font-size:20px;
+	line-height:45px;
+	
+}
+.trf3{
+	width:100%;
+	background:inherit;
+	text-align: justify;
+	color:black;
+	padding:5% 6px;
+}
+.trf3 a{
+	color:black;
+	text-decoration:none;
+
+}
+.footer address{
+	padding:20px;
+	text-align: left;
+	font-size: 20px;
+	word-spacing:10px;
+}
+
+
+/* social icons */
+
+
+ul {
+	padding:0;
+	list-style: none;
+}
+.footer-social-icons {
+	width: 100%;
+	display:block;
+	margin: 0 auto;
+	
+}
+.social-icon {
+	color: #fff;
+	
+}
+ul.social-icons {
+	margin-top: 0px;
+}
+.social-icons li {
+	vertical-align: top;
+	display: inline;
+	
+}
+.social-icons a {
+	color: #fff;
+	text-decoration: none;
+}
+.fa-facebook {
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	
+	background-color:#3d5b99 ;
+}
+.fa-facebook:hover {
+	background-color: #3d5b99;
+	border-radius:20px;
+}
+.fa-twitter {
+	padding:10px 12px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	background-color: #00aced;
+}
+.fa-twitter:hover {
+	background-color: #00aced;
+	border-radius:20px;
+}
+.fa-rss {
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	background-color: #eb8231;
+}
+.fa-rss:hover {
+	background-color: #eb8231;
+	border-radius:20px;
+}
+.fa-youtube {
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	background-color:  #e64a41;
+}
+.fa-youtube:hover {
+	background-color: #e64a41;
+	border-radius:20px;
+}
+.fa-linkedin {
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	background-color: #0073a4;
+}
+.fa-linkedin:hover {
+	background-color: #0073a4;
+	border-radius:20px;
+}
+.fa-github {
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	background-color: #322f30;
+}
+.fa-github:hover {
+	background-color: #5a32a3;
+	border-radius:20px;
+}
+
+.fa-instagram {
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	background-color: #322f30;
+
+}
+.fa-instagram:hover {
+	background-color: blue;
+	border-radius:20px;
+}
+
+.fa-phone{
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	
+	/* background-color: #322f30; */
+}
+.fa-phone:hover{
+	color:black;
+	background-color:inherit;
+	border-radius: 50%;
+}
+
+.fa-envelope{
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	
+	/* background-color: #322f30; */
+}
+.fa-envelope:hover{
+	color: black	;
+	background-color:inherit;
+	border-radius: 50%;
+}
+
+.fa-address-card{
+	padding:10px 14px;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition: .5s;
+	color:rgb(42, 236, 42);
+	background-color: #322f30;
+}

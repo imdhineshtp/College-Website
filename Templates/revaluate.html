@@ -1,0 +1,185 @@
+
+{% extends 'stu_profile.html' %}
+{% load static %}
+
+
+
+{% block userprofile %}
+{% if profiles %}
+{% for profile in profiles %}
+
+<div class="container-fluid mt-2 pt-3 pb-3 ">
+	<div class=" card shadow-lg ">
+		<div class="card-title p-2 text-center bg-primary  text-white ">
+			<h2 class="font-weight-bolder font-style-italic"> Revaluation</h2>
+		</div>
+		 <div class="card-body p-4">
+			 <div class="row">
+				 <div class="col-md-10 p-3 border bg-dark rounded shadow">
+					<div class="row m-0 p-0 bg-white">
+				
+						<div class="col-md-6 d-flex align-items-center justify-items-center m-0 border p-3">
+							<h4 class="font-weight-bolder font-style-italic">Name of the applicant</h4>
+						</div>
+						
+						<div class="col-md-6 border p-3">
+							<h5 class="font-weight-normal font-style-italic"> {{request.user.first_name}} {{request.user.last_name}} </h5>	
+						</div>
+					</div>
+					<div class="row m-0 p-0 bg-white">
+						
+						<div class="col-md-6 d-flex align-items-center justify-items-center m-0 border p-3">
+							<h4 class="font-weight-bolder font-style-italic">Register Number</h4>
+						</div>
+						
+						<div class="col-md-6 p-3 border">
+							<h5 class="font-weight-normal font-style-italic"> {{request.user.username}} </h5>	
+						</div>
+					</div>
+					<div class="row m-0 p-0 bg-white">
+						
+						<div class="col-md-6 d-flex align-items-center justify-items-center  m-0 p-3 border">
+							<h4 class="font-weight-bolder font-style-italic">Department Name</h4>
+						</div>
+						
+						<div class="col-md-6 p-3 border">
+							<h5 class="font-weight-normal font-style-italic">{{profile.Department}}</h5>
+						</div>
+					</div>
+					<div class="row m-0 p-0 bg-white">
+						
+						<div class="col-md-6 p-3 border">
+							<h4 class="font-weight-bolder font-style-italic">Address</h4>
+						</div>
+						
+						<div class="col-md-6 p-3 border">
+							<h5 class="font-weight-normal font-style-italic">{{profile.Permanent_Address}},	 {{profile.Per_Taluk}}</h5>
+						</div>
+					</div>
+					<div class="row m-0 p-0 bg-white">
+						
+						<div class="col-md-6 d-flex align-items-center justify-items-center  m-0 p-3 border">
+							<h4 class="font-weight-bolder font-style-italic">Pincode</h4>
+						</div>
+		
+						<div class="col-md-6 p-3 border">
+							<h5 class="font-weight-normal font-style-italic">{{profile.Per_Pin_Code}}</h5>
+						</div>
+					</div>
+					<div class="row m-0 p-0 bg-white">
+						<div class="col-md-6 d-flex align-items-center justify-items-center col-md-3 m-0 p-3 border">
+							<h4 class="font-weight-bolder font-style-italic">Mobile Number</h4>
+						</div>
+		
+						<div class="col-md-6 p-3 border ">
+							<h5 class="font-weight-normal font-style-italic">{{profile.Phone_number}}</h4>
+						</div>
+					</div>
+					<div class="row m-0 p-0 bg-white">
+		
+						<div class="col-md-6 d-flex align-items-center justify-items-center m-0 p-3 border">
+							<h4 class="font-weight-bolder font-style-italic">Course</h4>
+						</div>
+		
+						<div class="col-md-6 p-3 border">
+							<h5 class="font-weight-normal font-style-italic">{{profile.Course}}</h5>
+						</div>
+					</div>
+				 </div>
+				 <div class="col pt-4">
+					 <div class="row m-0 p-0 ">
+						 <div class="col text-center  p-2">
+							 <h4 class="font-weight-bolder">Candidate Image</h4>
+						 </div>
+					 </div>
+					 <div class="row m-0 p-0 ">
+						 <div class="col text-center candi p-2">
+							 <img src="{{profile.Image.url}}" class="img-thumbnail">
+						 </div>
+					 </div>
+
+
+				 </div>
+
+			 </div>
+			
+			<div class="row mt-4">
+				<div class=" card-body p-2">
+					<form class="form-group" method="POST" action="">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col text-center">
+								<h5 class="font-weight-bolder"> Subject Name </h5>
+								<select class="form-control" name= 'subject_name' placeholder="Subject name ">
+									{% for subject in subjects %}
+										<option>{{subject.Subject_name}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col text-center">
+								<h5 class="font-weight-bolder"> Marks </h5>
+								<input type="text" name = 'marks' class="form-control" placeholder="Marks Obtained" required>
+							</div>
+							<div class="col-md-2  d-flex align-items-center justify-items-center mt-2">
+								<button class="btn-lg btn-success">Add details</button>
+							</div>
+						</div>
+					</form>
+					{% if revaluation %}
+					<table class="table table-dark table-striped table-hover">
+						<thead class="text-center">
+							<tr>
+								<th>Subject Code</th>
+								<th>Subject name</th>
+								<th>Marks Obtained</th>
+								<th>Fee</th>
+							</tr>
+						</thead>
+						<tbody class="text-center">
+							{% for revalue in revaluation %}
+							<tr>
+								<td>{{revalue.code}}</td>
+								<td>{{revalue.name}}</td>
+								<td>{{revalue.marks}}</td>
+								<td>₹ 600/-</td>
+								<td><a href="{% url 'revaldelete' revalue.id %}" class="btn btn-danger">Delete</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					
+					{% endif %}
+				</div>
+			</div>
+			<div class="card-footer">
+				<form method = 'POST' action="{% url 'pay' %}">
+					{% csrf_token %}
+					<div class="row m-0 p-0">
+						<div class="col text-center font-weight-bolder">
+							<input type="checkbox" required>  I Accept the <span class="text-info">Terms & Conditions</span>
+						</div>
+					</div>
+				
+					<div class="row m-0 p-0">
+						<div class="col m-3 text-right">
+							<button type="submit" class="btn btn-success btn-lg">Confirm</button>
+						</div>
+
+						<div class="col m-3">
+							<a href="{% url 'revaldeleteall' %}" class="btn btn-lg btn-danger">Cancel</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div> 
+ 
+
+{% endfor %}
+{% endif %}
+{% endblock %}
+
+
+

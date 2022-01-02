@@ -1,0 +1,69 @@
+{% load static %}
+<img src="{% static 'Images/logo-1.jpg' %}" class="logo" alt="header">
+<div id="navbar" class="  ">
+  
+  <div class="head-center">
+    <!-- <div class=".img2">  <img src="{% static 'Images/logo-1.jpg' %}" alt="logo" ></div> -->
+    <a  href="http://127.0.0.1:8000"> Home</a>
+    <a  href="about/"> About</a>
+    
+    <a href="#" onclick="openNav()"> Departments </a>
+    <a href="#" onclick="openAct()">Activities</a>
+    </div>  
+</div>
+<!-- Department -->
+<div id="myNav" class="overlay">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn closebtn2" onclick="closeNav()">&times;</a>
+  <div class="overlay-header"><img src="{% static 'Images/logo-1.jpg' %}" class="logo" alt="header"></div>
+  <!-- Overlay content -->
+  <div class="overlay-content">
+    <div>
+    <a class="overlay-content-header">Department of Arts</a>
+    <a href="tamil/">Tamil</a>
+    <a href="english/">English</a>
+    <a href="history/">History</a>
+    <a href="commerce/">Commerce</a>
+    <a href="economics/">Economics</a>
+    <a href="bba/">Business Administration</a>
+  </div>
+  <div>
+    <a class="overlay-content-header"> Department Of Science</a>
+    <a href="bio_che/">Bio-Chemistry</a>
+    <a href="chemistry/">Chemistry</a>
+    <a href="comsci/">Computer Science</a>
+    <a href="electronics/">Electronics</a>
+    <a href="maths/">Mathematics</a>
+    <a href="physics/">Physics</a>
+  </div>
+  </div>
+
+</div>
+<!-- Activities -->
+<div id="myNav2" class="overlay">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeAct()">&times;</a>
+  <div class="overlay-header"><img src="{% static 'Images/logo-1.jpg' %}" class="logo" alt="header"></div>
+  <!-- Overlay content -->
+  <div class="overlay-content">
+   <div>
+    <a href="#">CLP</a>
+    <a href="#">Library</a>
+    <a href="#">NSS</a>
+    <a href="#">Sports</a>
+    
+  </div>
+  
+  <div>
+  
+    <a href="#">RRC</a>
+    <a href="#">PTA</a>
+    <a href="#">Fine Arts Club</a>
+    <a href="#">Soft Skill Center</a>
+    
+  </div>
+  </div>
+
+</div>  

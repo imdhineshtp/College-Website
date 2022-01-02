@@ -1,0 +1,40 @@
+{% load static %}
+
+
+<!-- <div id="navbar" >
+	<div class="navimg navbar-brand nav-tabs">
+		<img src="{% static 'Images/logoimg.jpg' %}">
+	</div>
+	<div class="profile-menu">
+		<div class="profile-icon">
+			<img src = "{{request.user.profile.Image.url}}" alt="test" class="" >
+		</div>
+	</div> -->
+
+<!-- </div> -->
+
+<!-- <img src="" class="border border-dark " style="border-radius:50%"> -->
+<div class="usernavbar p-1">
+	<div class="clg-logo ">
+		<img src="{% static 'Images/logoimg.jpg' %}">
+	</div>
+	<div class="profile-menu">
+		<div class="menu-icon pt-4 pl-2 pr-2 m-2">
+			<i class="fa fa-navicon"></i>
+		</div>
+		<div class="profile-icon pt-2" id="turnon">
+			<img src = "{{request.user.profile.Image.url}}" alt="test"  >
+		</div>
+	</div>
+</div>
+<div class="detail-card d-none" id="usernav">
+	<div class="pro-card-body text-center">
+	  <h4>{{user.first_name}} {{user.last_name}}</h4>
+	  <h5>{{user.username}}</h5>
+	</div>
+	<div class="pro-card-footer p-2 pl-3 ">
+	  <button type="button" class="btn btn-outline-dark btn-sm">Edit profile</button>
+	  <button type="button" class="btn btn-outline-dark btn-sm">Logout</button>
+	</div>
+</div>
+

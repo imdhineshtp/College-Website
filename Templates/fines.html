@@ -1,0 +1,65 @@
+
+{% extends 'stu_profile.html' %}
+{% load static %}
+
+
+{% block title %} {{request.user.first_name}} {% endblock %}
+{% block userprofile %}
+<div class="container-fluid text-dark text-center p-3 overflow-hidden mt-2 mb-2" style="height: 74vh;">
+	<form class="form-group" action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="row p-3">
+			<div class="col-md-5 text-right">
+				<h3 > Reason</h3>
+			</div>
+			<div class="col-md-5">
+				<input type="text" name="reason" class="form-control">
+			</div>
+		</div>
+
+		<div class="row p-3">
+			<div class="col-md-5 text-right">
+				<h3> Valid Document </h3>
+			</div>
+			<div class="col-md-3">
+				<input type="file" name="doc" class="form-control">
+			</div>
+		</div>
+
+		<div class="row p-3">
+			<div class="col-md-5 text-right">
+				<h3 > Fine Amount </h3>
+			</div>
+			<div class="col-md-3">
+				<input type="text" name="reason" class="form-control">
+			</div>
+		</div>
+
+		<div class="row p-3">
+			<div class="col-md-5 text-right">
+				<h3 > Payment type </h3>
+			</div>
+			<div class="col-md-3 pt-2 text-left">
+				<h3><input type="checkbox" name="online" class="m-1"> Online</h3>
+			</div>
+		</div>
+
+
+		<div class="row p-3">
+			<div class="col-lg text-right">
+				<h3 > <input type="submit" name="Submit" class="btn btn-success"> </h3>
+			</div>
+			<div class="col-lg text-left">
+				<h3 > <input type="reset" name="reset" class="btn btn-danger"> </h3>
+			</div>
+			
+		</div>		
+	</form>
+</div>
+
+
+{% endblock %}
+
+</body>
+
+</html>

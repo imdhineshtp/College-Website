@@ -1,0 +1,249 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} Register {% endblock %}
+
+{% block hf %}
+
+    
+<div class="container-fluid shadow-lg rounded p-3 text-center bg-info text-white mt-3">
+    <h2> Registration form </h2>
+</div>
+
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% if profile.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in profile.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+<div class="text-center">
+
+
+
+<div class="container-fluid  rounded text-dark p-5" >
+
+<div class="row">
+    <div class="col col-md-10">    
+
+        <form class="from-group" action="{% url 'register' %} " method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row ">
+                <div class="col col-md-4">
+                    <h4>{{ form.firstname.label }}<sup style="color:red;"> *</sup></h4>                    
+                       {{ form.firstname }}
+                </div>
+                <div class="col col-md-4">
+                    <h4>{{ form.lastname.label }}<sup style="color:red;"> *</sup></h4>
+                       {{ form.lastname }}
+                </div>
+                <div class="col col-md-4">
+                    <h4>{{ form.email.label}}<sup style="color:red;"> *</sup></h4>
+                    {{ form.email }}
+
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                
+                <div class="col col-md-3">
+                    <h4>{{ form.password1.label }} <sup style="color:red;"> *</sup></h4>
+                    {{ form.password1 }}
+                </div>
+                <div class="col col-md-3">
+                    <h4>{{form.password2.label}}<sup style="color:red;"> *</sup></h4>
+                    {{ form.password2 }}
+                </div>
+                <div class=" col col-md-3">
+                    <h4>{{profile.Phone_number.label}}<sup style="color:red;"> *</sup></h4>
+                    
+                    {{profile.Phone_number}}
+                </div>
+                <div class=" col col-md-3">
+                    <h4>Aadhar number<sup style="color:red;"> *</sup></h4>
+                    {{profile.Aadhar}}
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col col-md-3">
+                    <h4>{{profile.Date_Of_Birth.label}}<sup style="color:red;"> *</sup></h4>
+                    
+                    {{profile.Date_Of_Birth}}
+                </div>
+                <div class="col col-md-3 ">
+                    <h4>University Exam No<sup style="color:red;"> *</sup></h4>
+                    
+                    {{ form.username }}
+                </div>
+                <div class="col col-md-3">
+                    <h4>{{profile.Age.label}}<sup style="color:red;"> *</sup></h4>
+                    
+                    {{profile.Age}}
+                </div>
+                <div class="col col-md-3 ">
+                    <h4>{{profile.Gender.label}}<sup style="color:red;"> *</sup></h4>
+                    
+                    {{profile.Gender}}
+                </div>
+            </div>
+            <div class="row mt-3">
+                
+                <div class=" col col-md-5 ">
+                    <h4>{{profile.Department.label}}<sup style="color:red;"> *</sup></h4>
+                    {{profile.Department}}
+                </div>
+                <div class=" col col-md-4 ">
+                    <h4>{{profile.Course.label}}<sup style="color:red;"> *</sup></h4>
+                    {{profile.Course}}
+                </div>
+                <div class="col ">
+                    <h4>Father Name<sup style="color:red;"> *</sup></h4>
+                    {{profile.Guard}}
+                </div>
+
+            </div>
+            <hr>
+            <div class="row mt-5">
+                <div class="col col-lg ">
+                   <h5> <input type="checkbox" name="check" id="yes"> Check this If Both address are same</h5>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class=" col col-md-6" >
+                    <div class="col-lg  p-0">
+                        <h4>{{profile.Address.label}}<sup style="color:red;"> *</sup></h4>
+                    
+                        {{profile.Address}}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <h5>Taluk<sup style="color:red;"> *</sup></h5>
+                        
+                            {{profile.Taluk}}
+                        </div>
+                        <div class="col-md-6 ">
+                            <h5>State<sup style="color:red;"> *</sup></h5>
+                        
+                            {{profile.State}}
+                        </div>
+                    </div>
+                    <div class="row pb-3 ">
+                        <div class="col-md-6 ">
+                            <h5>District<sup style="color:red;"> *</sup></h5>
+                            {{profile.Dist}}
+                        </div>
+                        <div class="col-md-6 ">
+                            <h5>Pincode<sup style="color:red;"> *</sup></h5>
+                            {{profile.Pin_Code}}
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                
+            <!-- </div> -->
+            
+            <!-- <div class="row mt-3"> -->
+                <div class=" col col-md-6 " >
+                    <div class="col-lg  p-0 ">
+                        <h4>Permanent Address<sup style="color:red;"> *</sup></h4>
+                    
+                        {{profile.Permanent_Address}}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <h5>Taluk<sup style="color:red;"> *</sup></h5>
+                        
+                            {{profile.Per_Taluk}}
+                        </div>
+                        <div class="col-md-6 ">
+                            <h5>State<sup style="color:red;"> *</sup></h5>
+                        
+                            {{profile.Per_State}}
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-md-6 ">
+                            <h5>District<sup style="color:red;"> *</sup></h5>
+                            {{profile.Per_Dist}}
+                        </div>
+                        <div class="col-md-6 ">
+                            <h5>Pincode<sup style="color:red;"> *</sup></h5>
+                            {{profile.Per_Pin_Code}}
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                
+            </div>            
+    </div>
+
+    <div class = "col col-md-2">
+        <div class="row mt-4">
+            <div class="col col-lg text-center">
+                <img id="profile_pic" class="img-thumbnail rounded bg-dark d-none" height="150" width="136">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col col-lg">
+                <h4> Profile Image<sup style="color:red;"> *</sup></h4>
+                {{profile.Image}}
+
+            </div>
+        </div>
+          
+        <div class="row mt-4">
+            <div class="col col-lg text-center">
+                <img id="signature" class="img-thumbnail rounded bg-dark d-none" height="100" width="156">
+            </div>
+        </div>
+
+        <div class="row mt-4">
+                
+            <div class="col col-lg">
+                <h4> Signature<sup style="color:red;"> *</sup></h4>
+                {{profile.Sign}}
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-5 ">
+    <div class="col col-md-6 text-right">
+        <button class="btn btn-success"> Submit</button> 
+    </div>
+
+    <div class="col col-md-6 text-left ">
+        <input type="reset" name="Clear" class="btn btn-danger">
+    </div>
+</div>
+</form>
+
+</div>
+
+{% include 'script.html' %}
+{% endblock %}

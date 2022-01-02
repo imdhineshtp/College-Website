@@ -1,0 +1,115 @@
+{% load static %}
+
+<script  src="{% static 'js/script.js' %}"></script>  
+<script src="{% static 'js/jquerys.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<script>
+  $('#yes').bind('change', function () {
+
+    if ($(this).is(':checked'))
+    {
+      $('#id_Address').change(function() {
+     $('#id_Permanent_Address').val($(this).val());
+    });
+    $('#id_Taluk').change(function() {
+        $('#id_Per_Taluk').val($(this).val());
+    });
+    $('#id_State').change(function() {
+        $('#id_Per_State').val($(this).val());
+    });
+    $('#id_Dist').change(function() {
+        $('#id_Per_Dist').val($(this).val());
+    });
+    $('#id_Pin_Code').change(function() {
+        $('#id_Per_Pin_Code').val($(this).val());
+});}
+   else{
+   $('#id_Address').change(function() {
+    $('#id_Permanent_Address').val($('').val());
+ });
+ $('#id_Taluk').change(function() {
+   $('#id_Per_Taluk').val($('').val());
+});
+$('#id_State').change(function() {
+   $('#id_Per_State').val($('').val());
+});
+$('#id_Dist').change(function() {
+   $('#id_Per_Dist').val($('').val());
+});
+$('#id_Pin_Code').change(function() {
+   $('#id_Per_Pin_Code').val($('').val());
+});}
+  
+  });
+
+// image function
+$(function() {
+  $("#id_Image").on('change', function() {
+    // Display image on the page for viewing
+
+    readURL(this, "profile_pic");
+
+  });
+});
+
+
+$(function() {
+  $("#id_Sign").on('change', function() {
+    // Display image on the page for viewing
+    readURL(this, "signature");
+
+  });
+});
+
+function readURL(input, tar) {
+  if (input.files && input.files[0]) { // got sth
+    
+    $("#"+ tar).removeClass("d-none");
+    // Clear image container
+    $("#" + tar).removeAttr('src');
+
+    $.each(input.files, function(index, ff) // loop each image 
+      {
+
+        var reader = new FileReader();
+
+        // Put image in created image tags
+        reader.onload = function(e) {
+          $('#' + tar).attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(ff);
+
+      });
+  }
+}
+
+
+$(function(){
+    $('[data-toggle = "tooltip"] ').tooltip()
+  })
+
+   $("#cover").click(function(){
+    $("#changecover").removeClass("d-none");
+  });
+
+
+  $("#set").click(function(){
+    $("#changecover").addClass("d-none");
+  });
+  
+</script>
+
+
+<script>
+$(document).ready(function(){
+  $("#turnon").click(function{
+    $("#usernav").removeClass("d-none");
+  });
+});
+</script>

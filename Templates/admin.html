@@ -1,0 +1,114 @@
+{% extends 'home.html' %}
+{% load static %}
+{% static "img" as baseUrl %}
+
+{% block title %} Admin {% endblock %}
+{% block content %}
+
+{% include 'userheader.html' %}
+{% block admin %}
+<!--  search -->
+<h1 class="text-center p-3"> Hello Admin! </h1>
+
+
+<div class="container-fluid p-3 mt-3 mb-4">
+  <form class="form-group" method="POST" action = ''>
+    {% csrf_token %}
+  <div class="row">
+    <div class="col-md mt-2 text-right">
+      <h4>Search</h4>
+    </div>
+    <div class="col-md">
+      <input type="text" class="form-control" placeholder="Search" name = "search">
+    </div>
+    <div class="col-md-1 text-right mt-2">
+      <h4 >By</h4>
+    </div>
+    <div class="col-md">
+      <select class="form-control " name="by">
+        
+        <option>Register Number</option>
+        <option>Name</option>
+        <option>Aadhar Number</option>
+      </select>
+    </div>
+    <div class="col-md">
+      <input type="submit" class="btn btn-success" value="Submit">
+    </div>
+  </div>
+  </form>
+</div>
+<!--  end search -->
+<!-- After search  -->
+{% if profiles %}
+<table class=" w-100 h-100 table table-hover table-bordered table-active table-striped table-dark"> 
+  <thead class="text-center pt-3 pb-3">
+    <th> Name </th>
+    <th> Register No</th>
+    <th> Department</th>
+    
+    <th> Aadhar no </th>
+    <th> View </th>
+  </thead>
+  <tbody class="text-center ">
+      
+     
+    {% for pro in profiles %}
+     
+    <tr>
+        
+        <td class="pt-3 pb-3">{{pro.user.first_name}} {{pro.user.last_name}}</td>
+        <td>{{pro.user.username}}</td>
+        <td>{{pro.Department}}</td>
+        
+        <td> {{pro.Aadhar}}</td>
+        <td><a class="btn btn-info" href="{% url 'Profiles' pro.user.id %}" target="_blank">view</a>  </td>
+        
+        
+    </tr>
+        
+        {% endfor %}
+    
+    
+  </tbody>
+</table>
+
+{% endif %}
+<!-- End after search -->
+<!--  Before search -->
+{% if userprofile %}
+<table class=" w-100 h-100 table table-hover table-bordered table-active table-striped table-dark"> 
+  <thead class="text-center pt-3 pb-3">
+    <th> Name </th>
+    <th> Register No</th>
+    <th> Department</th>
+    
+    <th> Aadhar no </th>
+    <th> View </th>
+  </thead>
+  <tbody class="text-center ">
+      
+     
+    {% for profile in userprofile %}
+     {% if not profile.user.is_superuser %}
+    <tr>
+        
+        <td class="pt-3 pb-3">{{profile.user.first_name}} {{profile.user.last_name}}</td>
+        <td>{{profile.user.username}}</td>
+        <td>{{profile.Department}}</td>
+        
+        <td> {{profile.Aadhar}}</td>
+        <td><a class="btn btn-info" href="{% url 'Profiles' profile.user.id %}" target="_blank">view</a>  </td>
+        
+        
+    </tr>
+        {% endif %}
+        {% endfor %}
+    
+    
+  </tbody>
+</table>
+<!-- End before search -->
+{% endif %}
+{% endblock %}
+{% endblock %}

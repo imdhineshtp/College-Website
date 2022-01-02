@@ -1,0 +1,53 @@
+{% load static %}
+<div class="top-fotter">
+	<div style="text-align:left; padding-top:10px">
+	  &copy 2019 - 2020 Government Arts College
+	</div>
+	<div style=" text-align: right;">
+	  <i class="fa fa-phone social-icon" style="font-size:20px;"></i>
+	  <i>  04564 - 231652</i>
+	  <i class="fa fa-envelope social-icon" style="font-size: 17px;"></i>
+	  <a href="mailto:edu.gacpmk.in">Edu.gacpmk.in</a>
+	  </div>
+</div>  
+  
+  <div id="navbar">
+	<div class="navimg navbar-brand nav-tabs">
+	  <img src="{% static 'Images/logoimg.jpg' %}">
+	</div>
+	<div class="head-center btn-group">
+
+      <a href="{% url 'index' %}" class="btn nav-item">Home</a>
+      <a href="#" onclick="openNav()" class="btn nav-item"> Departments</a>
+	  
+	  
+	</div>
+  </div>
+  <div id="myNav" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-header">DEPARTMENTS</div>
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <div>
+      <a class="overlay-content-header text-light">Department of Arts</a>
+      <a href="{% url 'Department' 'Tamil' %}">Tamil</a>
+      <a href="{% url 'Department' 'English' %}">English</a>
+      <a href="{% url 'Department' 'History' %}">History</a>
+      <a href="{% url 'Department' 'Commerce' %}">Commerce</a>
+      <a href="{% url 'Department' 'Economics' %}">Economics</a>
+      <a href="{% url 'Department' 'Business Administration' %}">Business Administration</a>
+    </div>
+      <div>
+      <a class="overlay-content-header text-light"> Department Of Science</a>
+      <a href="{% url 'Department' 'Bio - Chemistry' %}">Bio-Chemistry</a>
+      <a href="{% url 'Department' 'Chemistry' %}">Chemistry</a>
+      <a href="{% url 'Department' 'Computer Science' %}">Computer Science</a>
+      <a href="{% url 'Department' 'Electronics' %}">Electronics</a>
+      <a href="{% url 'Department' 'Mathematics' %}">Mathematics</a>
+      <a href="{% url 'Department' 'Physics' %}">Physics</a>
+    </div>
+    </div>
+  
+  </div>

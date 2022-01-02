@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GACPMK{% endblock %}</title>
+
+    <link rel = "icon" href = "{% static 'Images/logo-copy.jpg' %}" type = "image/x-icon">
+
+    <!-- custom Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Bootstrap 4 -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Material icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+
+    <!-- custom style -->
+    <style type="text/css">
+        .carousel-indicators li {
+          width: 1vw;
+          height: 1vw;
+          border-radius: 100%;
+          background:black;
+          border:3px solid white;
+          /* margin-top:-1.2vw; */
+          
+        }
+    </style>
+
+</head>
+<body>
+   
+    {% block content %}
+        <!-- navbar -->
+            {% include 'h2.html' %}
+        <!-- navbar ends -->
+        
+        {% block hf %}
+            <!-- intro -->
+                <div  class="text-center wel">
+                    
+                    <div class="row d-flex justify-content-center align-items-center " data-aos="slide-down" data-aos-delay="9000" data-aos-easing="ease-in-out">
+                        <h1 class="text-center  mt-4 ">GAC <span></span></h1>
+                    </div>
+                    
+                    <div class="row justify-content-center align-items-baseline mt-4 responsive-hide">
+                        <a href="#gallery" class="btn btn-danger btn-lg" data-aos="slide-up" data-aos-delay="10000">Explore Us</a>
+                    </div>
+                    
+                </div>
+            <!-- intro ends -->
+
+            
+            <!-- welcome gallery -->
+                <div id="gallery" class="carousel slide carousel-fade w-100 h-100 " data-ride="carousel" data-aos="fade" >
+
+                    <ul class="carousel-indicators" >
+                        <li data-target="#gallery" data-slide-to="0" class="active"></li>
+                        <li data-target="#gallery" data-slide-to="1"></li>
+                        <li data-target="#gallery" data-slide-to="2"></li>
+                    </ul>
+        
+                    <div class="carousel-inner">
+                    
+                        <div class="carousel-item active" data-interval="300000">
+                            
+                            <div class=" d-block w-100 slide1">
+                                <img src="{% static 'Images/backgrounds/11.jpg' %}" class="w-100 h-100" alt="...">
+                            </div>
+
+                        </div>
+                        <div class="carousel-item" data-interval="300000">
+                            
+                            <div class="d-block w-100 slide1">
+                                <img src="{% static 'Images/CS/cs2.jpg' %}" class="w-100 h-100" alt="...">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="300000">
+                            
+                            <div class="d-block w-100 slide1">
+                                <img src="{% static 'Images/CS/cs3.jpg' %}" class="w-100 h-100" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#gallery" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#gallery" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            <!-- wee gallery ends -->
+
+            <!-- principal section -->
+                <div class="prince">
+                    <div class="prince-captions" data-aos="slide-up">
+                        <span data-aos="fade-up" data-aos-delay="900" data-aos-easing="linear">Dr.C.Poornachandran</span>
+                        <p data-aos="fade-up" data-aos-delay="1300">M.C.A., M.Phill., Ph.D </p>
+                        <Q data-aos="fade-up" data-aos-delay="1600">
+                            Principal of Govt. Arts College, Paramakudi
+                        </Q><br><br>
+                        <a href="{% url 'principal' %}" class="btn btn-success stroke btn-lg active" data-aos="fade-down" data-aos-delay="1900"> Read more</a>
+                    </div>
+                </div>
+            <!-- principle section ends -->
+
+            <!-- about section -->
+                <div class="container-abt" id="about" data-aos="slide-right">
+                    <div class="container-header"><span class="text-danger">W</span>ho <span class="text-danger">W</span>e <span class="text-danger">A</span>re <span class="text-danger ">?</span>.. </div>
+                    <p>Paramakudi Government Arts College is one of the affiliated College of Karaikudi Alagappa University. It was established in 1995-1996 by Tamilnadu Government. It was Accredited by NAAC with B. Initially it has been B.Sc.,(Computer Science), B.Sc.,(Bio-Chemistry), BBA, B.Com.,(Company Secretary). B.Sc.,(Electronics) Department was introduced in 1996-1997. In 2004-2005 Tamilnadu Government permitted to start the MBA course. In 2012 new course started with B.A. History, B.Sc. Chemistry.</p>
+                    <p>Tamilnadu Government was introduce two SHIFT method(Morning shift(9.00-1.30), Evening shift(1.30-6.00) for poor student's higher studies. M.Sc.,(computer science) was started in 2008-2009. & 2012 stated new courses M.A. Tamil, M.A. English, M.sc Maths, and M.Phil (Commerce, Management, Electronics), Ph.D (Management, Electronics). Our college also contains library and Laboratory for several departments separately. The important goal of Paramakudi Government Arts College is serve higher studies to poor people and teach Love, Discipline, Knowledge to students.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora molestias, quae quibusdam sit a expedita architecto similique. Veniam qui, voluptatem excepturi adipisci sunt odio rem, ullam exercitationem at ipsum nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, perferendis beatae. Quam dicta expedita quaerat odio in porro mollitia tenetur! Delectus id eligendi tenetur odio reiciendis inventore quam. Totam doloribus sint atque repudiandae delectus, rerum neque maiores similique! Quod quas mollitia est et quam odio totam inventore nulla suscipit? </p>
+                    <a href="{% url 'about' %}" class="btn btn-success d-block mt-4 mb-3" target="_blank"> More </a>
+                </div>
+            <!-- about section ends -->
+
+            <!-- parallex  -->
+                <div class="bg1" data-aos="fade-right"></div>
+            <!-- parallex ends -->
+
+            <!-- Department section -->
+                <div class="dept" id="department" data-aos="fade-up-right">	
+                    <div class="dept-header">
+                    <p>Departments<span> We Offered to You</span></p>
+                    </div>
+                    <!-- cards -->
+                    <div class="d-block"> 
+                
+                        {% for dept in depts %}
+                            <div class="dept-card" data-aos="zoom-in">
+                            
+                                <div class="face face1">
+                                    <div class="content">
+                                        <div class="test">
+                                            <img src="{{dept.img.url}}">
+                                        </div>
+                                        <h3> Department Of  <br>{{dept.name}}</h3>
+                                    </div>
+                                </div>
+
+                                <div class="face face2">
+                                    <div class="content">
+                                        <p class="text-justify"> {{dept.desc}} </p>
+                                        <a href="{% url 'Department' dept.name %}" target="_blank"> Read more </a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            <!-- department section ends -->
+        
+            <!-- parallex 2 starts -->
+                <div class="bg2" data-aos="slide-up"></div>
+            <!-- parallex 2 ends -->
+        
+        {% endblock %}
+
+        <!-- footer -->
+            {% include 'footer.html' %}
+        <!-- footer ends -->
+
+    {% endblock %}
+
+</body>
+<!-- jquery slim -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- jq popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- Bootstrap 4 jq -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- jquery 3.4 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- init AOS -->
+<script>
+  AOS.init();
+
+</script>
+
+</html>

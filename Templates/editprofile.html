@@ -1,0 +1,226 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'style.html' %}
+    <title>Edit Profile</title>
+</head>
+<body>
+    <!-- nav bar  -->
+    {% include 'userheader.html' %}
+
+    <div class="container   border border-success bg-dark text-info text-center mt-3 p-2 rounded ">
+        <h2> Update </h2>
+    </div>
+
+    <!-- update form -->
+    <div class="container-fluid  rounded text-dark p-5" >
+
+        <div class="row">
+            <div class="col col-md-10">    
+        
+                <form class="from-group" action=" " method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row ">
+                        <div class="col col-md-4">
+                            <h4>{{ form.first_name.label }}</h4>                    
+                               {{ form.first_name }}
+                        </div>
+                        <div class="col col-md-4">
+                            <h4>{{ form.last_name.label }}</h4>                    
+                               {{ form.last_name }}
+                        </div>
+                        <div class="col col-md-4">
+                            <h4>{{ form.email.label}}</h4>
+                            {{ form.email }}
+        
+                        </div>
+        
+                    </div>
+                    <div class="row mt-3">
+                        
+                        
+                        <div class=" col col-md-3">
+                            <h4>{{profile.Phone_number.label}}</h4>
+                            
+                            {{profile.Phone_number}}
+                        </div>
+                        <div class=" col col-md-3">
+                            <h4>Aadhar number</h4>
+                            {{profile.Aadhar}}
+                        </div>
+                        <div class="col col-md-3">
+                            <h4>{{profile.Date_Of_Birth.label}}</h4>
+                            
+                            {{profile.Date_Of_Birth}}
+                        </div>
+                        <div class="col col-md-1">
+                            <h4>{{profile.Age.label}}</h4>
+                            
+                            {{profile.Age}}
+                        </div>
+                        <div class="col col-md-2">
+                            <h4>{{profile.Gender.label}}</h4>
+                            
+                            {{profile.Gender}}
+                        </div>
+
+
+                    </div>
+                    <div class="row mt-5 text-center d-none">
+                        <div class="col col-lg">
+                        <h4> {{profile.Department.label}}</h4>
+                        {{profile.Department}}</div>
+                    </div>
+
+                    <div class="row mt-5 text-center">
+                        <div class="col col-lg ">
+                           <h5> <input type="checkbox" name="check" id="yes"> Check this If Both address are same</h5>
+                        </div>
+                    </div>
+        
+                    <div class="row mt-3">
+                        <div class=" col col-md-6" >
+                            <div class="col-lg  p-0">
+                                <h4>{{profile.Address.label}}</h4>
+                            
+                                {{profile.Address}}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <h5>Taluk</h5>
+                                
+                                    {{profile.Taluk}}
+                                </div>
+                                <div class="col-md-6 ">
+                                    <h5>State</h5>
+                                
+                                    {{profile.State}}
+                                </div>
+                            </div>
+                            <div class="row pb-3 ">
+                                <div class="col-md-6 ">
+                                    <h5>District</h5>
+                                    {{profile.Dist}}
+                                </div>
+                                <div class="col-md-6 ">
+                                    <h5>Pincode</h5>
+                                    {{profile.Pin_Code}}
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    <!-- </div> -->
+                    
+                    <!-- <div class="row mt-3"> -->
+                        <div class=" col col-md-6 " >
+                            <div class="col-lg  p-0 ">
+                                <h4>Permanent Address</h4>
+                            
+                                {{profile.Permanent_Address}}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <h5>Taluk</h5>
+                                
+                                    {{profile.Per_Taluk}}
+                                </div>
+                                <div class="col-md-6 ">
+                                    <h5>State</h5>
+                                
+                                    {{profile.Per_State}}
+                                </div>
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col-md-6 ">
+                                    <h5>District</h5>
+                                    {{profile.Per_Dist}}
+                                </div>
+                                <div class="col-md-6 ">
+                                    <h5>Pincode</h5>
+                                    {{profile.Per_Pin_Code}}
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    
+        
+                    <div class="row mt-4">
+                        
+                        
+                    </div>
+                    
+            </div>
+        
+            <div class = "col col-md-2">
+                <div class="row mt-4">
+                    <div class="col col-lg text-center">
+
+                        <img id="profile_pic" class="img-thumbnail rounded bg-dark" height="150" width="136" src = "{{ request.user.profile.Image.url }}">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col col-lg">
+                        <h4> Profile Image</h4>
+                        {{profile.Image}}
+
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col col-lg text-center">
+                        <img id="signature" class="img-thumbnail rounded bg-dark" height="100" width="156" src="{{ request.user.profile.Sign.url }}">
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                        
+                    <div class="col col-lg">
+                        <h4> Signature</h4>
+                        {{profile.Sign}}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 ">
+            <div class="col col-md-6 text-right">
+                <button class="btn btn-success"> Update</button> 
+            </div>
+        
+            <div class="col col-md-6 text-left ">
+                <a class="btn btn-danger" href="{% url 'student' %}"> Cancel</a>
+            </div>
+        </div>
+        </form>
+        
+        </div>
+</body>
+
+<!-- Bootstrap 4 scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- jquery 3.4 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- custom js -->
+<script src="{% static 'js/custom_jq.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</html>

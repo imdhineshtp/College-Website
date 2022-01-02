@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{request.user.first_name}}</title>
+  {% include 'style.html' %}
+</head>
+<body>
+<!-- navbar -->
+{% include 'userheader2.html' %}
+<!-- navbar ends -->
+{% block userprofile %}
+
+<!--  User dashboard -->
+<div class="dashboard row ">
+  <div class="col-lg-12 d-flex align-items-center justify-content-center ">
+    <div class="pro_pic row d-flex align-items-center justify-content-center">
+      
+      <div class="row  text-center">
+        <div class="col">
+          <img src = "{{request.user.profile.Image.url}}" alt="test" class="" >
+        </div>
+      </div>
+
+      <div class="row  text-center mt-2">
+        <div class="col-lg-12">
+          <p><h4 class="pl-3 font-weight-bolder"> {{user.first_name}} {{user.last_name}}</h4></p>
+        </div>
+        <div class="col">
+          <p class="font-weight-bolder text-dark"> {{user.username}}  </p>
+        </div>
+      </div>
+
+    
+      <div class="row  mt-2 p-2">
+        <div class="col text-center">
+          <a class="fa fa-edit" data-toggle="tooltip" data-placement="left" title="Edit Profile" href="{% url 'editprofile' %}"></a>
+        </div>
+        
+        <div class="col text-center">
+          <a class="fa fa-sign-out" data-toggle="tooltip" data-placement="left" title="Sign Out" href="{% url 'logout' %}"></a>
+        </div>
+      </div>    
+    </div>
+  </div>  
+</div>
+
+
+
+
+<div class="container-fluid p-3 ">
+  <div class="row">
+    <div class="col card shadow-lg">
+      <div class="card-header text-center">
+        <h2>Pay Fines</h2>
+      </div>
+      <div class="card-body text-justify  ">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente voluptatibus perferendis sint ad ipsa quod impedit rerum ea repellendus vitae quis expedita eum, placeat veritatis quidem itaque cum? Labore optio, aliquam molestiae aspernatur doloribus dolor, in magni autem facilis possimus asperiores cupiditate accusamus. Soluta quas porro magni quasi, reiciendis ullam!
+
+      </div>
+      <div class="card-footer text-center">
+        <a href="{% url 'fines' %}" class="btn-lg btn btn-info" id="cover_ancher"> Click Here</a>
+      </div>
+   </div>
+
+   <div class="col card shadow-lg">
+    <div class="card-header text-center">
+      <h2> Apply Revaluations</h2>
+    </div>
+    <div class="card-body text-justify  ">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente voluptatibus perferendis sint ad ipsa quod impedit rerum ea repellendus vitae quis expedita eum, placeat veritatis quidem itaque cum? Labore optio, aliquam molestiae aspernatur doloribus dolor, in magni autem facilis possimus asperiores cupiditate accusamus. Soluta quas porro magni quasi, reiciendis ullam!
+
+    </div>
+    <div class="card-footer text-center">
+      <a href="{% url 'revalue' %}" class="btn-lg btn btn-info "> Click Here</a>
+    </div>
+ </div>
+
+    <div class="col card shadow-lg">
+      <div class="card-header text-center">
+        <h2>Apply University Exams</h2>
+      </div>
+      <div class="card-body text-justify  ">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente voluptatibus perferendis sint ad ipsa quod impedit rerum ea repellendus vitae quis expedita eum, placeat veritatis quidem itaque cum? Labore optio, aliquam molestiae aspernatur doloribus dolor, in magni autem facilis possimus asperiores cupiditate accusamus. Soluta quas porro magni quasi, reiciendis ullam!
+
+      </div>
+      <div class="card-footer text-center">
+        <a href="{% url 'aue' %}" class="btn-lg btn btn-info "> Click Here</a>
+      </div>
+   </div>
+  </div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+<!--  User dashboard ends -->
+
+
+
+{% include 'userfooter.html' %}
+{% include 'script.html' %}
+
+
+<script>
+  // $(function(){
+  //   $('[data-toggle = "tooltip"] ').tooltip()
+  // })
+</script>
+
+<script>
+  // $("#cover").click(function(){
+  //   $("#changecover").toggle();
+  // });
+
+</script>
+  
+</body>
+</html>
